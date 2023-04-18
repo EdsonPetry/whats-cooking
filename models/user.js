@@ -21,4 +21,12 @@ User.init({
 
         }
     }
+   
+   
+},{
+    sequelize.db,
+    modelName:'user'
+
 })
+
+module.exports = User
