@@ -10,9 +10,9 @@ router.get('/login', (req, res) => {
   res.render('auth/login');
 });
 
-router.get('/register', (req, res) => {
+router.get('/signup', (req, res) => {
 
-  res.render('auth/register');
+  res.render('auth/signup');
 });
 
 module.exports = router;
