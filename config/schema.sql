@@ -1,15 +1,5 @@
 DROP DATABASE IF EXISTS whats_cooking_db;
 CREATE DATABASE whats_cooking_db;
-<<<<<<< HEAD
-
-USE whats_cooking_db
-
-CREATE TABLE categories (
-    category_name VARCHAR(255) NOT NULL
-);
-
-INSERT INTO categories (category_name) VALUES ("recipes"), ("tips"), ("questions");
-=======
 USE whats_cooking_db;
 
 CREATE TABLE users (
@@ -29,4 +19,3 @@ CREATE TABLE categories (
 );
 INSERT INTO categories (category_name) VALUES ("recipes"), ("tips"), ("questions");
 
->>>>>>> 8ef5e25bc1bc7dec31bfa72be89ddd96ac866723
