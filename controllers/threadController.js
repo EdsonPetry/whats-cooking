@@ -12,6 +12,11 @@ function isAuthenticated(req, res, next) {
   next();
 }
 
+//render the newpost view
+router.get("/newpost", isAuthenticated, (req, res) => {
+  res.render("newpost");
+});
+
 //viewing category and its related threads
 router.get("/category/:id", async (req, res) => {
   const category = await Category.findByPk(req.params.id, {
