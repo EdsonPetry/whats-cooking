@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const User = require('../models/user')
+const router = require("express").Router();
+const User = require("../models/user");
 
 function isAuthenticated(req, res, next) {
   if (!req.session.user_id) {
@@ -16,6 +16,5 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
     });
   });
 
- 
-
+//removed unecessary route '/dashboard'
 module.exports = router;
