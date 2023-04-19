@@ -15,9 +15,5 @@ router.get('/signup', (req, res) => {
   res.render('auth/signup');
 });
 
-router.get('/createpost', (req, res) => {
-
-  res.render('newpost');
-});
 
 module.exports = router;

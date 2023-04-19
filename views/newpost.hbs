@@ -1,12 +1,12 @@
 {{!-- User Controller - form to create new post - only accessable if logged in --}}
 
-<form  action="/createpost" method="POST">
+<form  action="/newpost" method="POST">
   <input name="title" type="text" placeholder="Title">
   <input name="content" type="text" placeholder="">
-  <select id="cars" name="cars">
-     <option value="recipe">Recipe</option>
+  <select name="category_name">
+     <option value="recipes">Recipe</option>
      <option value="tips">Tips</option>
-     <option value="question">Question</option>
+     <option value="questions">Question</option>
   </select>   
   <button>Submit</button>
 </form>
