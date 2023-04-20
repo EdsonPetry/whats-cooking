@@ -47,15 +47,6 @@ router.get("/thread/:id", async (req, res) => {
   });
 });
 
-// TESTING
-
-router.get('/newpost', (req, res) => {
-
-  res.render('newpost');
-});
-// -----------------------------------
-
-
 //creating a new thread
 router.post("/newpost", isAuthenticated, async (req, res) => {
   const { title, content, category_id } = req.body;
