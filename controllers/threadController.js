@@ -49,31 +49,30 @@ router.get("/thread/:id", async (req, res) => {
 
 //creating a new thread
 router.post("/newpost", isAuthenticated, async (req, res) => {
-  const category = await Category.findOne({
+  let category = await Category.findOne({
     where: {
       category_name: req.body.category,
     },
-
-  }
-  ).then((category) => {
-    return category.id;
   });
+
+  //if the category does not exist, create a new one
+  if (!category) {
+    category = await Category.create({ category_name: req.body.category });
+  }
 
   const { title, content } = req.body;
   const user_id = req.session.user_id;
 
-
-  console.log(category, title, content, user_id);
+  console.log(category.id, title, content, user_id);
   try {
-    await Post.create({ title, content, user_id, category }
-    )
+    await Post.create({ title, content, user_id, category_id: category.id });
 
-    console.log(" created new post")
-  }
-  catch (err) {
-    console.log(err)
+    console.log("Created new post");
+    res.redirect("/"); // Redirect to a relevant page, e.g., the homepage
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Error creating new post");
   }
 });
-
 //export
 module.exports = router;
