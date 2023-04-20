@@ -67,3 +67,22 @@ h3 {
   background: rgb(166, 166, 166);
   border-radius: 20px;
 }
+
+/* POSTs */
+
+#post {
+  margin: 0 5%;
+  padding: 2%;
+  margin-top: 2%;
+  border: 5px, solid, rgb(255, 255, 255);
+  border-radius: 20px;
+  background: rgb(166, 166, 166);
+  
+  text-align: center;
+}
+
+#postheader {
+  font-family: "Alegreya Sans SC", sans-serif;
+  display: flex;
+  justify-content: space-evenly;
+}
