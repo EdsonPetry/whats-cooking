@@ -19,15 +19,23 @@ Post.init({
             key: 'id'
         }
     },
-    category_id: {
+    category: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
             model: 'categories',
             key: 'id'
         }
     }
 }, {
+    associations: {
+        belongsTo: 'users',
+        belongsTo: 'categories'
+
+    },
     sequelize: db,
     modelName: 'post'
 })
 
+
+module.exports = Post

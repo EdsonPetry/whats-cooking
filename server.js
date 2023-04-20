@@ -5,6 +5,7 @@ const session = require("express-session");
 const public_routes = require("./controllers/publicController");
 const auth_routes = require("./controllers/authController");
 const private_routes = require("./controllers/userController");
+const thread_routes = require('./controllers/threadController')
 const { engine } = require("express-handlebars");
 const db = require("./config/connection");
 
@@ -30,7 +31,7 @@ app.use(
   })
 );
 
-app.use("/", [public_routes, auth_routes, private_routes]);
+app.use("/", [public_routes, auth_routes, private_routes, thread_routes]);
 
 db.sync().then(() => {
   app.listen(PORT, () => console.log("Server started on port %s", PORT));

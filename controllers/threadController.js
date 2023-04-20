@@ -1,7 +1,7 @@
 //Import modules/models
 const router = require("express").Router();
 const Category = require("../models/category");
-const Post = require("../models/post");
+const Post = require("../models/post")
 const User = require("../models/user");
 
 //check if user is logged in
@@ -12,19 +12,29 @@ function isAuthenticated(req, res, next) {
   next();
 }
 
-//viewing category and its related threads
-router.get("/category/:id", async (req, res) => {
-  const category = await Category.findByPk(req.params.id, {
-    include: [{ model: Post, include: [User] }],
-  });
-
-  const posts = category.Posts.map((post) => post.get({ plain: true }));
-
-  res.render("category", {
-    category: category.get({ plain: true }),
-    posts,
-  });
+//render the newpost view
+router.get("/newpost", isAuthenticated, (req, res) => {
+  res.render("newpost");
 });
+
+// viewing category and its related threads
+// router.get("/category/:id", async (req, res) => {
+//   const category = await Category.findByPk(req.params.id, {
+//     include: [{ model: Post, include: [User] }],
+//   });
+
+//   //check if category is null
+//   if (!category) {
+//     return res.status(404).send("Category not found");
+//   }
+
+//   const posts = category.Posts.map((post) => post.get({ plain: true }));
+
+//   res.render("category", {
+//     category: category.get({ plain: true }),
+//     posts,
+//   });
+// });
 
 //viewing a specific thread
 router.get("/thread/:id", async (req, res) => {
@@ -37,24 +47,50 @@ router.get("/thread/:id", async (req, res) => {
   });
 });
 
-// TESTING
-
-router.get('/newpost', (req, res) => {
-
-  res.render('newpost');
-});
-// -----------------------------------
-
-
 //creating a new thread
 router.post("/newpost", isAuthenticated, async (req, res) => {
-  const { title, content, category_id } = req.body;
+  const category = await Category.findOne({
+    where: {
+      category_name: req.body.category,
+    },
+
+  }
+  ).then((category) => {
+    return category.id;
+  });
+
+  const { title, content } = req.body;
   const user_id = req.session.user_id;
 
-  await Post.create({ title, content, category_id, user_id });
 
-  res.redirect(`/category/${category_id}`);
+  console.log(category, title, content, user_id);
+  try {
+   const newpost = await Post.create({ title, content, user_id, category }
+    )
+
+    console.log(" created new post")
+    console.log(newpost)
+  }
+  catch (err) {
+    console.log(err)
+
+  }
+
+  res.redirect(`/category/${category}`)
+
 });
 
-//export
+
+
+
+// router.post("/newpost", isAuthenticated, async (req, res) => {
+//   const { title, content } = req.body;
+//   const user_id = req.session.user_id;
+
+//  const newpost = await Post.create({ title, content, user_id });
+// console.log(newpost)
+//   res.redirect('/');
+// });
+
+// export
 module.exports = router;

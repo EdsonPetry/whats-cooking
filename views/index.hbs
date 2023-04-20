@@ -1,7 +1,7 @@
 {{!-- GET RECENT POSTS? --}}
 
 <div>
-     <h2 class="text-center">Recipes of the day</h2>
+    <h2 class="text-center">Recipes of the day</h2>
 </div>
 
 <div class="row main-recipes">
@@ -13,7 +13,7 @@
     </div>
     <div class="column">
         <div class="card">..</div>
-    </div> 
+    </div>
     <div class="column">
         <div class="card">..</div>
     </div>
@@ -27,6 +27,20 @@
 <section class="about">
     <div class="about-box">
         <h3>What's cookin' good lookin'? </h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt sint harum animi cupiditate esse iure aut id debitis nam possimus illo, itaque repellendus ullam, ipsum quas! Fugiat porro quas hic?</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt sint harum animi cupiditate esse iure aut
+            id debitis nam possimus illo, itaque repellendus ullam, ipsum quas! Fugiat porro quas hic?</p>
     </div>
+</section>
+
+<section id="posts">
+    {{#each post}}
+    <div id="post">
+        <div id="postheader">
+            <h5>test--categoryDisplay</h5>
+            <h3>{{this.title}}</h3>
+            <h5>test--authorDisplay</h5>
+        </div>
+        <p>{{this.content}}</p>
+    </div>
+    {{/each}}
 </section>
