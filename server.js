@@ -8,6 +8,7 @@ const private_routes = require("./controllers/userController");
 const { engine } = require("express-handlebars");
 const db = require("./config/connection");
 const threadController = require("./controllers/threadController");
+const apiRoutes = require("./controllers/api/apiController");
 const { User, Category, Post } = require("./models");
 const app = express();
 
@@ -33,6 +34,8 @@ app.use(
 
 app.use("/", [public_routes, auth_routes, private_routes]);
 app.use("/", threadController);
+app.use("/api", apiRoutes);
+
 db.sync().then(() => {
   app.listen(PORT, () => console.log("Server started on port %s", PORT));
 });
