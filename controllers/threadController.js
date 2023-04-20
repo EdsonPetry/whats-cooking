@@ -17,11 +17,16 @@ router.get("/newpost", isAuthenticated, (req, res) => {
   res.render("newpost");
 });
 
-//viewing category and its related threads
+// viewing category and its related threads
 router.get("/category/:id", async (req, res) => {
   const category = await Category.findByPk(req.params.id, {
     include: [{ model: Post, include: [User] }],
   });
+
+  //check if category is null
+  if (!category) {
+    return res.status(404).send("Category not found");
+  }
 
   const posts = category.Posts.map((post) => post.get({ plain: true }));
 
@@ -41,15 +46,6 @@ router.get("/thread/:id", async (req, res) => {
     post: post.get({ plain: true }),
   });
 });
-
-// TESTING
-
-router.get('/newpost', (req, res) => {
-
-  res.render('newpost');
-});
-// -----------------------------------
-
 
 //creating a new thread
 router.post("/newpost", isAuthenticated, async (req, res) => {
