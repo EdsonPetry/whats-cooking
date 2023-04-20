@@ -8,6 +8,7 @@ const private_routes = require("./controllers/userController");
 const { engine } = require("express-handlebars");
 const db = require("./config/connection");
 const threadController = require("./controllers/threadController");
+const { User, Category, Post } = require("./models");
 const app = express();
 
 app.engine(
