@@ -1,7 +1,7 @@
 //Import modules/models
 const router = require("express").Router();
 const Category = require("../models/category");
-const Post = require("../models/post")
+const Post = require("../models/post");
 const User = require("../models/user");
 
 //check if user is logged in
@@ -18,23 +18,23 @@ router.get("/newpost", isAuthenticated, (req, res) => {
 });
 
 // viewing category and its related threads
-// router.get("/category/:id", async (req, res) => {
-//   const category = await Category.findByPk(req.params.id, {
-//     include: [{ model: Post, include: [User] }],
-//   });
+router.get("/category/:id", async (req, res) => {
+  const category = await Category.findByPk(req.params.id, {
+    include: [{ model: Post, include: [User] }],
+  });
 
-//   //check if category is null
-//   if (!category) {
-//     return res.status(404).send("Category not found");
-//   }
+  //check if category is null
+  if (!category) {
+    return res.status(404).send("Category not found");
+  }
 
-//   const posts = category.Posts.map((post) => post.get({ plain: true }));
+  const posts = category.Posts.map((post) => post.get({ plain: true }));
 
-//   res.render("category", {
-//     category: category.get({ plain: true }),
-//     posts,
-//   });
-// });
+  res.render("category", {
+    category: category.get({ plain: true }),
+    posts,
+  });
+});
 
 //viewing a specific thread
 router.get("/thread/:id", async (req, res) => {
@@ -65,32 +65,15 @@ router.post("/newpost", isAuthenticated, async (req, res) => {
 
   console.log(category, title, content, user_id);
   try {
-   const newpost = await Post.create({ title, content, user_id, category }
+    await Post.create({ title, content, user_id, category }
     )
 
     console.log(" created new post")
-    console.log(newpost)
   }
   catch (err) {
     console.log(err)
-
   }
-
-  res.redirect(`/category/${category}`)
-
 });
 
-
-
-
-// router.post("/newpost", isAuthenticated, async (req, res) => {
-//   const { title, content } = req.body;
-//   const user_id = req.session.user_id;
-
-//  const newpost = await Post.create({ title, content, user_id });
-// console.log(newpost)
-//   res.redirect('/');
-// });
-
-// export
+//export
 module.exports = router;
