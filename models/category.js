@@ -12,8 +12,14 @@ Category.init(
   },
   {
     sequelize: db,
-    modelName: category,
+    modelName: "category",
   }
 );
+//added the association with the post model
+Category.associate = (models) => {
+  Category.hasMany(models.Post, {
+    foreignKey: "category_id",
+  });
+};
 
 module.exports = Category;
