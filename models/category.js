@@ -18,14 +18,14 @@ Category.init(
   },
   {
     associations: {
-      hasMany: 'posts'
+      hasMany: 'post'
     },
 
     sequelize: db,
     modelName: "category",
   }
 );
-//added the association with the post model
+// added the association with the post model
 Category.associate = (models) => {
   Category.hasMany(models.Post, {
     foreignKey: "category_id",
