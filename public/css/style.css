@@ -20,6 +20,7 @@ h1 {
 }
 
 footer {
+  margin-top: 80vh;
   text-align: center;
   background-color: rgb(122, 80, 80);
   color: rgb(255, 255, 255);
@@ -91,4 +92,28 @@ h3 {
   font-family: "Alegreya Sans SC", sans-serif;
   display: flex;
   justify-content: space-evenly;
+}
+
+.profile {
+  float: right;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  margin-right: 5%;
+  padding-bottom: 3%;
+}
+
+.profile h4 {
+  color: white;
+  font-family: "Alegreya Sans SC", sans-serif;
+  background-color: rgb(122, 80, 80);
+}
+#makepost {
+  
+  color: white;
+  text-decoration: none;
+  background-color: rgb(122, 80, 80);
+  padding: 2.5%;
+  border-radius: 8px;
 }
