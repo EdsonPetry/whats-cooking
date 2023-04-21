@@ -1,5 +1,6 @@
 .navbar {
   background-color: rgb(122, 80, 80);
+  justify-content: space-around;
 }
 
 .searchbar {
@@ -11,6 +12,11 @@ h1 {
   color: rgb(255, 255, 255);
   font-family: "Alegreya Sans SC", sans-serif;
   font-size: 50px;
+}
+
+#title {
+  text-decoration: none !important;
+  color:rgb(255, 255, 255);
 }
 
 footer {

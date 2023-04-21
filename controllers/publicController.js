@@ -30,6 +30,7 @@ router.get("/", async (req, res) => {
     post: post,
     recipes: firstRecipes,
   });
+
 });
 
 router.get("/login", (req, res) => {

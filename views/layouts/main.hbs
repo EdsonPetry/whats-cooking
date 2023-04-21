@@ -28,7 +28,7 @@
 
   <body>
     <nav class="navbar text-white">
-      <h1>Whats Cooking?</h1>
+      <h1 id="title"><a id="title" href="/">Whats Cooking?</a></h1>
       <div>
         <input
           class="searchbar"
@@ -36,12 +36,17 @@
           placeholder="Search recipes, topics, and all things food"
         />
       </div>
-
+      {{#unless user}}
       <div>
         <a class="text-white" href="/login">Login</a>
         <span>OR</span>
         <a class="text-white" href="/signup">Sign Up</a>
       </div>
+      {{/unless}}
+      {{#if user}}
+      <a class="text-white" href="/dashboard">Dashboard</a>
+      <a class="text-white" href="/auth/logout">Log Out</a>
+      {{/if}}
     </nav>
 
     {{{body}}}
