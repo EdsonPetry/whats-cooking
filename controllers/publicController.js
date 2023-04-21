@@ -9,19 +9,19 @@ router.get("/", async (req, res) => {
   // axios fetch here
   let firstRecipes = [];
   const response1 = await axios.get(randomRecipeURL);
-  let recipe1 = response1.data.recipes[0].image; // what's the next extension
+  let recipe1 = response1.data.recipes[0].image; 
   console.log(recipe1);
   firstRecipes.push(recipe1);
   const response2 = await axios.get(randomRecipeURL);
-  let recipe2 = response2.data.recipes[0].image; // what's the next extension
+  let recipe2 = response2.data.recipes[0].image; 
   console.log(recipe2);
   firstRecipes.push(recipe2);
   const response3 = await axios.get(randomRecipeURL);
-  let recipe3 = response3.data.recipes[0].image; // what's the next extension
+  let recipe3 = response3.data.recipes[0].image; 
   console.log(recipe3);
   firstRecipes.push(recipe3);
   const response4 = await axios.get(randomRecipeURL);
-  let recipe4 = response4.data.recipes[0].image; // what's the next extension
+  let recipe4 = response4.data.recipes[0].image; 
   console.log(recipe4);
   firstRecipes.push(recipe4);
 
