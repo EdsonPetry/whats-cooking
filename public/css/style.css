@@ -102,9 +102,11 @@ h3 {
   text-align: center;
   margin-right: 5%;
   padding-bottom: 3%;
+  border-radius: 10px;
 }
 
 .profile h4 {
+  padding: 1%;
   color: white;
   font-family: "Alegreya Sans SC", sans-serif;
   background-color: rgb(122, 80, 80);
