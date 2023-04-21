@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const db = require("../config/connection");
+const User = require('./user')
 
 class Post extends Model {}
 
@@ -42,5 +43,7 @@ Post.associate = (models) => {
     foreignKey: "category_id",
   });
 };
+
+Post.belongsTo(User)
 
 module.exports = Post;
