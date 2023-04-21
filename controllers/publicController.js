@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Post = require("../models/post");
 const axios = require("axios");
+const User = require("../models/user")
 
 router.get("/", async (req, res) => {
   const randomRecipeURL =
@@ -26,9 +27,11 @@ router.get("/", async (req, res) => {
 
   console.log(firstRecipes);
   const post = await Post.findAll({ raw: true });
+  const user = await User.findByPk(req.session.user_id)
   res.render("index", {
     post: post,
     recipes: firstRecipes,
+    user: user
   });
 
 });
