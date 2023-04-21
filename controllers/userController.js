@@ -12,6 +12,7 @@ function isAuthenticated(req, res, next) {
 router.get('/dashboard', isAuthenticated, async (req, res) => {
   const user = await User.findByPk(req.session.user_id)
     res.render('user_dashboard', {
+      user: user,
       username: user.username
     });
   });
