@@ -65,7 +65,7 @@ router.post("/newpost", isAuthenticated, async (req, res) => {
 
   console.log(category.id, title, content, user_id);
   try {
-  const newPost = await Post.create({ title, content, user_id, category_id: category.id });
+    const newPost = await Post.create({ title, content, user_id, category_id: category.id });
     console.log(newPost)
     console.log("Created new post");
     res.redirect("/"); // Redirect to a relevant page, e.g., the homepage
