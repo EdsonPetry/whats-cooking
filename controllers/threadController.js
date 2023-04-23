@@ -13,8 +13,11 @@ function isAuthenticated(req, res, next) {
 }
 
 //render the newpost view
-router.get("/newpost", isAuthenticated, (req, res) => {
-  res.render("newpost");
+router.get("/newpost", isAuthenticated, async(req, res) => {
+  const user = await User.findByPk(req.session.user_id)
+  res.render("newpost", {
+    user: user
+  });
 });
 
 // viewing category and its related threads
@@ -38,12 +41,14 @@ router.get("/category/:id", async (req, res) => {
 
 //viewing a specific thread
 router.get("/thread/:id", async (req, res) => {
+  const user = await User.findByPk(req.session.user_id)
   const post = await Post.findByPk(req.params.id, {
     include: [User],
   });
 
   res.render("thread", {
     post: post.get({ plain: true }),
+    user: user
   });
 });
 

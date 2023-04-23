@@ -38,6 +38,52 @@ router.get("/", async (req, res) => {
 
 });
 
+// category routes
+// RECIPE
+router.get("/recipes", async (req, res) => {
+  const user = await User.findByPk(req.session.user_id)
+  const recipeposts = await Post.findAll({ include: [Category, User],
+  where: {
+    category_id: 4
+  } });
+  const recipepost = recipeposts.map((recipepost) => recipepost.get({ plain: true }));
+  res.render("recipes", {
+    recipepost: recipepost,
+    
+    user: user
+  });
+});
+// TIPS
+router.get("/tips", async (req, res) => {
+  const user = await User.findByPk(req.session.user_id)
+  const tipsposts = await Post.findAll({ include: [Category, User],
+  where: {
+    category_id: 2
+  } });
+  const tipspost = tipsposts.map((tipspost) => tipspost.get({ plain: true }));
+  res.render("tips", {
+    tipspost: tipspost,
+    
+    user: user
+  });
+});
+// QUESTIONS
+router.get("/questions", async (req, res) => {
+  const user = await User.findByPk(req.session.user_id)
+  const questionsposts = await Post.findAll({ include: [Category, User],
+  where: {
+    category_id: 5
+  } });
+  const questionspost = questionsposts.map((questionspost) => questionspost.get({ plain: true }));
+  res.render("questions", {
+    questionspost: questionspost,
+    
+    user: user
+  });
+});
+
+
+
 router.get("/login", (req, res) => {
   res.render("auth/login");
 });
