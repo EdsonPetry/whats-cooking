@@ -8,6 +8,7 @@
     "start": "node server.js",
     "seed": "node seeds/index.js",
     "dev": "nodemon server.js"
+    
   },
   "keywords": [],
   "author": "",

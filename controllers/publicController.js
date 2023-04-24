@@ -10,25 +10,25 @@ router.get("/", async (req, res) => {
   let firstRecipes = [];
   const response1 = await axios.get(randomRecipeURL);
   let recipe1 = response1.data.recipes[0].image;
-  console.log(recipe1);
+  // console.log(recipe1);
   firstRecipes.push(recipe1);
   const response2 = await axios.get(randomRecipeURL);
   let recipe2 = response2.data.recipes[0].image;
-  console.log(recipe2);
+  // console.log(recipe2);
   firstRecipes.push(recipe2);
   const response3 = await axios.get(randomRecipeURL);
   let recipe3 = response3.data.recipes[0].image;
-  console.log(recipe3);
+  // console.log(recipe3);
   firstRecipes.push(recipe3);
   const response4 = await axios.get(randomRecipeURL);
   let recipe4 = response4.data.recipes[0].image;
-  console.log(recipe4);
+  // console.log(recipe4);
   firstRecipes.push(recipe4);
 
-  console.log(firstRecipes);
+  // console.log(firstRecipes);
   const posts = await Post.findAll({ include: [Category, User] });
   const post = posts.map((post) => post.get({ plain: true }));
-  console.log(post);
+  // console.log(post);
   const user = await User.findByPk(req.session.user_id)
   res.render("index", {
     post: post,
@@ -44,7 +44,7 @@ router.get("/recipes", async (req, res) => {
   const user = await User.findByPk(req.session.user_id)
   const recipeposts = await Post.findAll({ include: [Category, User],
   where: {
-    category_id: 4
+    category_id: 1
   } });
   const recipepost = recipeposts.map((recipepost) => recipepost.get({ plain: true }));
   res.render("recipes", {
@@ -72,7 +72,7 @@ router.get("/questions", async (req, res) => {
   const user = await User.findByPk(req.session.user_id)
   const questionsposts = await Post.findAll({ include: [Category, User],
   where: {
-    category_id: 5
+    category_id: 3
   } });
   const questionspost = questionsposts.map((questionspost) => questionspost.get({ plain: true }));
   res.render("questions", {

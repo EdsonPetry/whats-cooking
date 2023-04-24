@@ -1,13 +1,14 @@
 {{! User controller - update user profile (PUT) - only accessable if logged in}}
 
-<h2>Welcome, {{username}}</h2>
+<h2 id="username">Welcome, {{username}}</h2>
 
 
 
 <div class="profile">
    <h4>{{username}}</h4> 
+   <div id="userstats">
    <p>Member Since: <span>{{membersince}}</span></p> 
-
+    </div>
     <a id="makepost" href='/newpost'>Make a post</a>
 </div>
 
