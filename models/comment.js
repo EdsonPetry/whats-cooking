@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize")
 const db = require("../config/connection")
+const moment = require('moment')
 
 class Comment extends Model { }
 
@@ -15,6 +16,13 @@ Comment.init({
             key: 'id'
         }
     },
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+        get() {
+            return moment(this.getDataValue('createdAt')).format('DD/MM/YYYY');
+        }
+    }
 },
     {
         sequelize: db,

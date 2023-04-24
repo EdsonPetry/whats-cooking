@@ -1,12 +1,13 @@
 {{! User Controller - form to create new post - only accessable if logged in }}
-
-<form action="/newpost" method="POST">
-  <input name="title" type="text" placeholder="Title" />
-  <input name="content" type="text" placeholder="" />
-  <select id="category" name="category">
-    <option value="recipe">Recipe</option>
-    <option value="tips">Tips</option>
-    <option value="question">Question</option>
-  </select>
-  <button>Submit</button>
-</form>
+<div id="newpost">
+  <form action="/newpost" method="POST">
+    <input id="titleinput" name="title" type="text" placeholder="Title" />
+    <input id="content" name="content" type="textarea" placeholder="" />
+    <span>Category:</span><select id="category" name="category">
+      <option value="recipe">Recipe</option>
+      <option value="tips">Tips</option>
+      <option value="question">Question</option>
+    </select>
+    <button>Submit</button>
+  </form>
+</div>

@@ -1,8 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 const db = require("../config/connection");
-const User = require('./user')
+const User = require('./user');
+const { timeStamp } = require("console");
+const moment = require('moment')
 
-class Post extends Model {}
+
+class Post extends Model { }
 
 Post.init(
   {
@@ -28,7 +31,22 @@ Post.init(
         key: "id",
       },
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      get() {
+        return moment(this.getDataValue('createdAt')).format('MM/DD/YYYY');
+      }
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      get() {
+        return moment(this.getDataValue('createdAt')).format('MM/DD/YYYY');
+      }
+    }
   },
+
   {
     sequelize: db,
     modelName: "post",
