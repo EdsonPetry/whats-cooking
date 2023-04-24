@@ -1,9 +1,20 @@
-.navbar {
-  background-color: rgb(122, 80, 80);
-  justify-content: space-around;
+:root {
+  --primary-color: #c2714f;
 }
 
+.navbar {
+  background-color: var(--primary-color);
+  justify-content: space-around;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #dbd3ad;
+}
 .searchbar {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   border-radius: 10px;
   width: 500px;
 }
@@ -16,13 +27,13 @@ h1 {
 
 #title {
   text-decoration: none !important;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 footer {
   margin-top: 80vh;
   text-align: center;
-  background-color: rgb(122, 80, 80);
+  background-color: var(--primary-color);
   color: rgb(255, 255, 255);
 }
 
@@ -42,20 +53,37 @@ h2 {
 }
 
 .card {
-  box-shadow: 0 5px 5px 0 rgb(134, 13, 13);
+  box-shadow: 0 5px 5px 0 #d36060;
   padding: 20px;
   text-align: center;
   background: rgb(255, 255, 255);
 }
 
+.video {
+  margin: 30px 200px;
+}
+
+.video-box {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background: var(--primary-color);
+  border: 20px black;
+  border-radius: 20px;
+}
+
 .about {
-  margin: 0 200px;
+  margin: 30px 175px;
 }
 
 .about-box {
   text-align: center;
+  font-size: 20;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   padding: 20px;
-  background: rgb(166, 166, 166);
+  background: var(--primary-color);
   border: 20px black;
   border-radius: 20px;
 }
@@ -71,7 +99,7 @@ h3 {
 .login-box {
   margin: 0 500px;
   height: 100px;
-  background: rgb(166, 166, 166);
+  background: var(--primary-color);
   border-radius: 20px;
 }
 
@@ -83,13 +111,14 @@ h3 {
   margin-top: 2%;
   border: 5px, solid, rgb(255, 255, 255);
   border-radius: 20px;
-  background: rgb(166, 166, 166);
-  
+  background: var(--primary-color);
+
   text-align: center;
 }
 
 #postheader {
   font-family: "Alegreya Sans SC", sans-serif;
+  color: black;
   display: flex;
   justify-content: space-evenly;
 }
@@ -108,94 +137,60 @@ h3 {
 .profile h4 {
   padding: 1%;
   color: white;
-  font-family: "Alegreya Sans SC", sans-serif;
-  background-color: rgb(122, 80, 80);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: var(--primary-color);
 }
 #makepost {
-  
   color: white;
   text-decoration: none;
-  background-color: rgb(122, 80, 80);
+  background-color: var(--primary-color);
   padding: 2.5%;
   border-radius: 8px;
 }
 
 .menu-btn {
-  background-color: rgb(122, 80, 80);
+  background-color: var(--primary-color);
   color: white;
   padding: 16px;
-  
-  
-  
+
   border: none;
 }
 .dropdown-menu {
   position: relative;
   display: inline-block;
-  background-color: rgb(122, 80, 80);
+  background-color: var(--primary-color);
 }
 .menu-content {
   display: none;
   position: absolute;
-  background-color: rgb(122, 80, 80);
+  background-color: var(--primary-color);
   min-width: 160px;
   z-index: 1;
 }
 
-
-.links,.links-hidden{
+.links,
+.links-hidden {
   display: inline-block;
   color: rgb(255, 255, 255);
   padding: 12px 16px;
   text-decoration: none;
-  
+
   font-weight: bold;
 }
-.links-hidden{
+.links-hidden {
   display: block;
 }
-.links{
+.links {
   display: inline-block;
 }
-.links-hidden:hover,.links:hover {
+.links-hidden:hover,
+.links:hover {
   background-color: rgb(8, 107, 46);
 }
 .dropdown-menu:hover .menu-content {
   display: block;
 }
-
-#newpost {
-  
-  margin: 0 auto;
-  width: 50%;
-  /* justify-content: center; */
-  background-color: rgb(122, 80, 80);
-  margin-top: 10%;
-  
-}
-
-#newpost form {
-  align-items: center;
-  padding: 5%;
-  display: flex;
-  flex-direction: column;
-}
-
-#titleinput {
-  margin: 1%;
-  width: 50%;
-  
-}
-
-#content {
-  margin: 1%;
-  width: 80%;
-  /* padding: 10% */
-  min-height: 500px;
-  
-}
-
-.postlink {
-  text-decoration: none !important;
-  color:black;
-}
+/* .dropdown-menu:hover .menu-btn {
+    background-color: #3e8e41;
+  } */
