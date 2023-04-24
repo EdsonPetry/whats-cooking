@@ -123,24 +123,36 @@ h3 {
   justify-content: space-evenly;
 }
 
+#username {
+  margin-left: 5%;
+}
+
 .profile {
   float: right;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   margin: auto;
   text-align: center;
-  margin-right: 5%;
-  padding-bottom: 3%;
+  margin-right: 10%;
+  padding-bottom: 1%;
   border-radius: 10px;
 }
 
 .profile h4 {
+  
   padding: 1%;
   color: white;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background-color: var(--primary-color);
 }
+
+#userstats {
+  padding: 5%;
+  margin-bottom: 5%;
+}
+
+
 #makepost {
   color: white;
   text-decoration: none;
@@ -191,6 +203,39 @@ h3 {
 .dropdown-menu:hover .menu-content {
   display: block;
 }
-/* .dropdown-menu:hover .menu-btn {
-    background-color: #3e8e41;
-  } */
+
+#newpost {
+  
+  margin: 0 auto;
+  width: 50%;
+  /* justify-content: center; */
+  background-color: rgb(122, 80, 80);
+  margin-top: 10%;
+  
+}
+
+#newpost form {
+  align-items: center;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+#titleinput {
+  margin: 1%;
+  width: 50%;
+  
+}
+
+#content {
+  margin: 1%;
+  width: 80%;
+  /* padding: 10% */
+  min-height: 500px;
+  
+}
+
+.postlink {
+  text-decoration: none !important;
+  color:black;
+}
