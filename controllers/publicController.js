@@ -58,7 +58,7 @@ router.get("/tips", async (req, res) => {
   const user = await User.findByPk(req.session.user_id)
   const tipsposts = await Post.findAll({ include: [Category, User],
   where: {
-    category_id: 2
+    category_id: 3
   } });
   const tipspost = tipsposts.map((tipspost) => tipspost.get({ plain: true }));
   res.render("tips", {
@@ -72,7 +72,7 @@ router.get("/questions", async (req, res) => {
   const user = await User.findByPk(req.session.user_id)
   const questionsposts = await Post.findAll({ include: [Category, User],
   where: {
-    category_id: 3
+    category_id: 2
   } });
   const questionspost = questionsposts.map((questionspost) => questionspost.get({ plain: true }));
   res.render("questions", {
